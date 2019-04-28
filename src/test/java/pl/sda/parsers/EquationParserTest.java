@@ -3,6 +3,7 @@ package pl.sda.parsers;
 import org.junit.Assert;
 import org.junit.Test;
 import pl.sda.model.Equation;
+import pl.sda.model.EquationBuilder;
 
 import static org.junit.Assert.*;
 
@@ -14,12 +15,10 @@ public class EquationParserTest {
     public void shouldReturn1And1And1() {
         //given
         final String equationToParse = "x+1=1";
-        final Equation expectedEquation = new Equation();
 
         //TODO: wprowadzić builder
-        expectedEquation.setA(1d);
-        expectedEquation.setB(1d);
-        expectedEquation.setC(1d);
+        EquationBuilder builder = new EquationBuilder();
+        final Equation expectedEquation = builder.withA(1d).withB(1d).withC(1d).build();
 
         //when
         Equation result = equationParser.parse(equationToParse);
@@ -32,12 +31,10 @@ public class EquationParserTest {
     public void shouldReturnMinus1And1And1() {
         //given
         final String equationToParse = "-x+1=1";
-        final Equation expectedEquation = new Equation();
 
         //TODO: wprowadzić builder
-        expectedEquation.setA(-1d);
-        expectedEquation.setB(1d);
-        expectedEquation.setC(1d);
+        EquationBuilder builder = new EquationBuilder();
+        final Equation expectedEquation = builder.withA(-1d).withB(1d).withC(1d).build();
 
         //when
         Equation result = equationParser.parse(equationToParse);
@@ -51,12 +48,10 @@ public class EquationParserTest {
     public void shouldReturnMinus2And1And1() {
         //given
         final String equationToParse = "-2x+1=1";
-        final Equation expectedEquation = new Equation();
 
         //TODO: wprowadzić builder
-        expectedEquation.setA(-2d);
-        expectedEquation.setB(1d);
-        expectedEquation.setC(1d);
+        EquationBuilder builder = new EquationBuilder();
+        final Equation expectedEquation = builder.withA(-2d).withB(1d).withC(1d).build();
 
         //when
         Equation result = equationParser.parse(equationToParse);
@@ -69,12 +64,10 @@ public class EquationParserTest {
     public void shouldReturnMinus2And0And1() {
         //given
         final String equationToParse = "-2x=1";
-        final Equation expectedEquation = new Equation();
 
         //TODO: wprowadzić builder
-        expectedEquation.setA(-2d);
-        expectedEquation.setB(0d);
-        expectedEquation.setC(1d);
+        EquationBuilder builder = new EquationBuilder();
+        final Equation expectedEquation = builder.withA(-2d).withB(0d).withC(1d).build();
 
         //when
         Equation result = equationParser.parse(equationToParse);

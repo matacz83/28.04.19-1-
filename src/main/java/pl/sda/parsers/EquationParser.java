@@ -1,6 +1,7 @@
 package pl.sda.parsers;
 
 import pl.sda.model.Equation;
+import pl.sda.model.EquationBuilder;
 
 public class EquationParser {
     public Equation parse(String equationString) {
@@ -22,11 +23,12 @@ public class EquationParser {
 
         Double b = leftSide.length == 1 ? 0 : Double.parseDouble(leftSide[1]);
 
-        Equation equation = new Equation();
+        EquationBuilder builder = new EquationBuilder();
+        Equation equation = builder.withA(a).withB(b).withC(c).build();
+       /* Equation equation = new Equation();
         equation.setA(a);
         equation.setB(b);
-        equation.setC(c);
-
+        equation.setC(c);*/
         return equation;
     }
 
